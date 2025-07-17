@@ -1,18 +1,18 @@
 .header {
-  padding: 20px;
+  padding: 5px;
   background: linear-gradient(135deg, #032541, #06517e);
   border-bottom: 1px solid #022664;
-  margin-bottom: 20px;
 }
 
 .container {
   max-width: 1440px;
-  margin: 0 auto;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
   gap: 12px;
+  margin: 0 auto;
 }
 
 .link {

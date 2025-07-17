@@ -1,6 +1,6 @@
 import css from "./HomePageHeader.module.css";
 
-export default function HomePageHeader() {
+export default function HomePage() {
   return (
     <div className={css.header}>
       <h1>

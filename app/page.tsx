@@ -1,5 +1,10 @@
-import HomePageHeader from "@/components/HomePageHeader/HomePageHeader";
+import HomePageClient from "./HomePage.client";
+import css from "./page.module.css";
 
 export default function Home() {
-  return <HomePageHeader />;
+  return (
+    <div className={css.homePageWrapper}>
+      <HomePageClient />
+    </div>
+  );
 }

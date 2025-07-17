@@ -19,6 +19,8 @@ const api = axios.create({
   },
 });
 
+// Fetch movies based on a search query
+// Returns a paginated response of movies
 export default async function fetchMovies(
   query: string,
   page: number
@@ -31,5 +33,12 @@ export default async function fetchMovies(
     },
   });
 
+  return response.data;
+}
+
+// Fetch movie details by ID
+// Returns a single movie object
+export async function fetchMovieById(id: string): Promise<Movie> {
+  const response = await api.get<Movie>(`/movie/${id}`);
   return response.data;
 }

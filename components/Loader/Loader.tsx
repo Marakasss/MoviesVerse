@@ -1,10 +1,11 @@
+import { CircleLoader } from "react-spinners";
 import css from "./Loader.module.css";
-import { BeatLoader } from "react-spinners";
 
-export default function Loader() {
+const Loading = () => {
   return (
-    <div>
-      <BeatLoader className={css.loader} color="white" />
+    <div className={css.loader}>
+      <CircleLoader color="blue" />
     </div>
   );
-}
+};
+export default Loading;
