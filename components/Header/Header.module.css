@@ -2,6 +2,12 @@
   padding: 5px;
   background: linear-gradient(135deg, #032541, #06517e);
   border-bottom: 1px solid #022664;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
 .container {

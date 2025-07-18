@@ -2,13 +2,19 @@
 
 .footer {
   padding: 20px;
-
-  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   font-size: 14px;
   color: #f3f0f0;
   border-top: 1px solid #242424;
   margin-top: auto;
   background: linear-gradient(135deg, #032541, #06517e);
+}
+
+.footerContentWrp {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
 .wrap {
@@ -25,4 +31,34 @@
 
 .footer a:hover {
   text-decoration: underline;
+}
+
+.logowrp {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  align-items: flex-end;
+  align-self: center;
+}
+
+.link {
+  font-size: 12px;
+  font-weight: 500;
+  color: #eff7ff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: block;
+}
+
+.link > p {
+  text-align: left;
+  margin-bottom: 3px;
+}
+
+.content {
+  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
+  align-items: center;
 }

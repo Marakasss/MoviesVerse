@@ -6,5 +6,23 @@ export interface Movie {
   overview: string;
   release_date: string;
   vote_average: number;
-  genres: object[];
+  genres: Genre[];
+  budget: number;
+  imdb_id: string;
+  production_companies: Company[];
+  production_countries: Countries[];
+}
+
+export interface Genre {
+  id: number;
+  name: string;
+}
+
+export interface Company {
+  logo_path: string;
+  name: string;
+}
+
+export interface Countries {
+  name: string;
 }

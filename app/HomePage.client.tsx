@@ -5,7 +5,6 @@ import css from "./page.module.css";
 import { getRandomBackdropUrl } from "@/lib/getRandomBg";
 import { useQuery } from "@tanstack/react-query";
 
-
 const HomePageClient = () => {
   const [backGround, setBackground] = useState<string | null>(null);
 
@@ -40,11 +39,11 @@ const HomePageClient = () => {
 
         <div className={css.description}>
           <p>
-            MovieFinder is a fast and user-friendly movie search app powered by
-            The Movie Database (TMDB) API. Whether you're planning a movie night
-            or just exploring what's trending, MovieFinder helps you discover
-            detailed information about films — including posters, ratings,
-            overviews, and more.
+            MovieVerse is a fast and user-friendly movie search app powered by
+            The Movie Database (TMDB) API. Whether you&#39;re planning a movie
+            night or just exploring what&#39;s trending, MovieFinder helps you
+            discover detailed information about films — including posters,
+            ratings, overviews, and more.
           </p>
           <p>
             Built with React, Next.js, and TypeScript, the app delivers smooth

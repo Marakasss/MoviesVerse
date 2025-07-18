@@ -22,12 +22,7 @@ const Header = () => {
     <header className={css.header}>
       <div className={css.container}>
         <div className={css.logowrp}>
-          <Link
-            className={css.link}
-            href="/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <Link className={css.link} href="/" rel="noopener noreferrer">
             <Image src="/logo.png" alt="logo" width={180} height={80} />
           </Link>
         </div>
