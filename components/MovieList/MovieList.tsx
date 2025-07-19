@@ -13,7 +13,7 @@ const MovieList = ({ movies }: MovieGridProps) => {
     <ul className={css.grid}>
       {movies
         .slice()
-        .sort((a, b) => b.vote_average - a.vote_average)
+        .sort((a, b) => b.popularity - a.popularity)
         .map((movie) => {
           const { id, poster_path, title } = movie;
 

@@ -11,6 +11,7 @@ export interface Movie {
   imdb_id: string;
   production_companies: Company[];
   production_countries: Countries[];
+  popularity: number;
 }
 
 export interface Genre {

@@ -23,8 +23,9 @@ const MovieDetailsClient = () => {
         src={
           movie?.poster_path
             ? `https://image.tmdb.org/t/p/original/${movie?.poster_path}`
-            : `https://image.tmdb.org/t/p/original/${movie?.backdrop_path}` ||
-              "/poster-placeholder.png"
+            : movie?.backdrop_path
+            ? `https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`
+            : "/poster-placeholder.png"
         }
         alt={movie?.title ?? "Movie Poster"}
         width={500}
@@ -82,7 +83,7 @@ const MovieDetailsClient = () => {
         <div className={css.companiesList}>
           <ul className={css.genres}>
             {movie?.production_companies.map(({ name, logo_path }) => (
-              <li key={logo_path}>
+              <li key={logo_path} className={css.companyCard}>
                 <p className={css.company}>{name}</p>
                 {logo_path && (
                   <Image

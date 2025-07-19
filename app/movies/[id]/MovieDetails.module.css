@@ -2,7 +2,7 @@
   max-width: 1440px;
   color: azure;
   display: flex;
-  gap: 32px;
+  gap: 78px;
   margin-bottom: 32px;
 
   font-size: 18px;
@@ -12,7 +12,7 @@
 
 .poster {
   border-radius: 8px;
-  margin: 12px;
+
   align-self: center;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
@@ -78,4 +78,12 @@
   font-size: 22px;
   font-weight: 700;
   margin: 28px 0;
+}
+
+.companyCard {
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

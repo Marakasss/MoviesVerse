@@ -31,9 +31,10 @@ const MoviePreviewClient = () => {
       <Image
         src={
           movie?.backdrop_path
-            ? `https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`
-            : `https://image.tmdb.org/t/p/original/${movie?.poster_path}` ||
-              "/poster-placeholder.png"
+            ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`
+            : movie?.poster_path
+            ? `https://image.tmdb.org/t/p/original/${movie.poster_path}`
+            : "/poster-placeholder.png"
         }
         alt={movie?.title ?? "Movie Poster"}
         width={278}
