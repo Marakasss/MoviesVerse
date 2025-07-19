@@ -2,10 +2,12 @@
   max-width: 1440px;
   color: azure;
   display: flex;
-  flex-direction: column;
+  gap: 32px;
+  margin-bottom: 32px;
+
   font-size: 18px;
-  margin: 0 auto;
-  margin-top: 24px;
+  align-self: center;
+  margin: 36px 0;
 }
 
 .poster {
@@ -28,6 +30,7 @@
   flex-direction: column;
   margin: 0 auto;
   gap: 16px;
+  margin-bottom: 32px;
 }
 
 .genresWrp {

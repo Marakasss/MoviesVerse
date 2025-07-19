@@ -19,34 +19,37 @@ const MovieDetailsClient = () => {
 
   return (
     <div className={css.pageWrapper}>
-      <h2 className={css.title}>
-        {movie?.title} ({movie?.release_date.slice(0, 4)})
-      </h2>
       <Image
         src={
-          movie?.backdrop_path
-            ? `https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`
-            : "/poster-placeholder.png"
+          movie?.poster_path
+            ? `https://image.tmdb.org/t/p/original/${movie?.poster_path}`
+            : `https://image.tmdb.org/t/p/original/${movie?.backdrop_path}` ||
+              "/poster-placeholder.png"
         }
         alt={movie?.title ?? "Movie Poster"}
-        width={854}
-        height={480}
+        width={500}
+        height={750}
         className={css.poster}
+        style={{ objectFit: "contain" }}
       />
       <div className={css.descrWrapper}>
+        <h2 className={css.title}>
+          {movie?.title}{" "}
+          {movie?.release_date ? `(${movie?.release_date.slice(0, 4)})` : ""}
+        </h2>
         <div className={css.genresWrp}>
           <p className={css.info}>
             <strong>Genre:</strong>
           </p>
           <ul className={css.genres}>
             {movie?.genres.map(({ id, name }) => (
-              <li key={id}>{name}</li>
+              <li key={id}>{name ? name : "no info"}</li>
             ))}
           </ul>
         </div>
         <p>
           <strong className={css.info}>Release Date:</strong>{" "}
-          {movie?.release_date}
+          {movie?.release_date ? movie?.release_date : "no info"}
         </p>
 
         <p>
@@ -59,15 +62,17 @@ const MovieDetailsClient = () => {
             <strong>Production countries:</strong>
           </p>
           <ul className={css.genres}>
-            {movie?.production_countries.map(({ name }) => (
-              <li key={name}>{name}</li>
-            ))}
+            {movie?.production_countries
+              ? movie?.production_countries.map(({ name }) => (
+                  <li key={name}>{name}</li>
+                ))
+              : "no info"}
           </ul>
         </div>
 
         <p>
           <strong className={css.info}>Budget:</strong>
-          {movie?.budget + "$"}
+          {movie?.budget ? movie?.budget + "$" : "no info"}
         </p>
 
         <p className={css.overview}>{movie?.overview}</p>

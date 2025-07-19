@@ -10,14 +10,15 @@ const Header = () => {
   const router = useRouter();
   const handleSubmit = (formData: FormData) => {
     const query = formData.get("query") as string;
+
     if (query.trim() === "") {
       toast("Please enter your search query.", { icon: "🤔" });
-
       return;
     }
 
     router.push(`/movies/search/${query}`);
   };
+
   return (
     <header className={css.header}>
       <div className={css.container}>

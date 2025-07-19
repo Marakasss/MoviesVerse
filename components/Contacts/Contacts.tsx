@@ -10,7 +10,8 @@ const Contacts = () => {
           <Link
             data-social="linkedin"
             aria-label="LinkedIn"
-            href="https://linkedin.com/"
+            href="https://www.linkedin.com/in/ihor-petriv-in/"
+            target="blank"
           >
             <div className={css.filled}></div>
             <svg
@@ -34,7 +35,8 @@ const Contacts = () => {
           <a
             data-social="github"
             aria-label="GitHub"
-            href="https://www.github.com/"
+            href="https://github.com/Marakasss"
+            target="blank"
           >
             <div className={css.filled}></div>
             <svg
@@ -56,9 +58,10 @@ const Contacts = () => {
         </li>
         <li className={css["icon-content"]}>
           <a
-            href="https://telegram.org/"
+            href="https://t.me/igorpetriv"
             aria-label="Telegram"
             data-social="telegram"
+            target="blank"
           >
             <div className={css.filled}></div>
             <svg version="1.1" viewBox="0 0 100 100">

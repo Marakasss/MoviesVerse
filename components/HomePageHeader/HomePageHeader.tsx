@@ -1,6 +1,6 @@
 import css from "./HomePageHeader.module.css";
 
-export default function HomePage() {
+const HomePage = () => {
   return (
     <div className={css.header}>
       <h1>
@@ -10,4 +10,6 @@ export default function HomePage() {
       </h1>
     </div>
   );
-}
+};
+
+export default HomePage;

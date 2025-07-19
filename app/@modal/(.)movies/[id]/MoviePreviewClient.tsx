@@ -32,11 +32,13 @@ const MoviePreviewClient = () => {
         src={
           movie?.backdrop_path
             ? `https://image.tmdb.org/t/p/original/${movie?.backdrop_path}`
-            : "/poster-placeholder.png"
+            : `https://image.tmdb.org/t/p/original/${movie?.poster_path}` ||
+              "/poster-placeholder.png"
         }
         alt={movie?.title ?? "Movie Poster"}
         width={278}
         height={300}
+        objectFit="contain"
         className={css.image}
       />
       <div className={css.content}>
