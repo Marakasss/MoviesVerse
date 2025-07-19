@@ -12,7 +12,12 @@ const Header = () => {
     const query = formData.get("query") as string;
 
     if (query.trim() === "") {
-      toast("Please enter your search query.", { icon: "🤔" });
+      toast("Please enter your search query.", {
+        icon: "🤔",
+        style: {
+          zIndex: 9999,
+        },
+      });
       return;
     }
 
