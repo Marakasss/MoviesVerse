@@ -45,6 +45,7 @@ const HomePageClient = () => {
             discover detailed information about films — including posters,
             ratings, overviews, and more.
           </p>
+          <br />
           <p>
             Built with React, Next.js, and TypeScript, the app delivers smooth
             navigation and responsive design. It also uses React Query for
