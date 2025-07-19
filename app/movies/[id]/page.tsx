@@ -8,9 +8,13 @@ import React from "react";
 import MovieDetailsClient from "./MovieDetails.client";
 import { Metadata } from "next";
 
+//Types--------------------------------------
+
 interface MovieDetailsProps {
   params: Promise<{ id: string }>;
 }
+
+//Metadata--------------------------------------
 
 export const generateMetadata = async ({
   params,
@@ -64,6 +68,8 @@ export const generateMetadata = async ({
     },
   };
 };
+
+//Component--------------------------------------
 
 const MovieDetails = async ({ params }: MovieDetailsProps) => {
   const { id } = await params;

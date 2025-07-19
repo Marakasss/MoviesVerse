@@ -2,6 +2,8 @@ import React from "react";
 import MoviesClient from "./Movies.client";
 import { Metadata } from "next";
 
+//Types--------------------------------------
+
 interface MoviesProps {
   params: Promise<{ slug: string[] }>;
 }
@@ -32,7 +34,7 @@ export const generateMetadata = async ({
     openGraph: {
       title: "MoviesVerse",
       description,
-      url: "https://movies-verse-mocha.vercel.app/",
+      url: `https://movies-verse-mocha.vercel.app/movies/search/${query}`,
       siteName: "MoviesVerse",
 
       images: [
@@ -53,6 +55,8 @@ export const generateMetadata = async ({
     },
   };
 };
+
+//Component--------------------------------------
 
 const Movies = async ({ params }: MoviesProps) => {
   const { slug } = await params;
