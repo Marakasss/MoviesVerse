@@ -42,3 +42,10 @@ export async function fetchMovieById(id: string): Promise<Movie> {
   const response = await api.get<Movie>(`/movie/${id}`);
   return response.data;
 }
+
+export async function fetchPopularMovies(page: number = 1) {
+  const response = await api.get<MoviesResponse>("/movie/popular", {
+    params: { page, include_adult: false },
+  });
+  return response.data;
+}

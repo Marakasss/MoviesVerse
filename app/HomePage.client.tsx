@@ -5,6 +5,8 @@ import css from "./page.module.css";
 import { getRandomBackdropUrl } from "@/lib/getRandomBg";
 import { useQuery } from "@tanstack/react-query";
 
+import MovieSwiper from "@/components/MovieSwiper/MovieSwiper";
+
 const HomePageClient = () => {
   const [backGround, setBackground] = useState<string | null>(null);
 
@@ -53,6 +55,9 @@ const HomePageClient = () => {
             seamless user experience.
           </p>
           <p>Start typing to find your next favorite movie. 🍿</p>
+        </div>
+        <div className={css.movieSwiperWrp}>
+          <MovieSwiper />
         </div>
       </div>
     </div>

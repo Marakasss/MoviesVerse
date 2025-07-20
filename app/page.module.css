@@ -1,8 +1,8 @@
 .homePageWrapper {
   display: flex;
-
+  overflow-x: hidden;
   min-height: 80vh;
-  min-width: 100vw;
+  width: 100%;
   margin: 0;
   background-color: #f8f9fa;
   background: linear-gradient(135deg, #011f35, #043452);
@@ -49,4 +49,12 @@
   max-width: 800px;
   box-sizing: border-box;
   display: inline-block;
+}
+
+.movieSwiperWrp {
+  width: 100vw;
+
+  align-self: center;
+  overflow-x: hidden;
+  margin-top: 80px;
 }
