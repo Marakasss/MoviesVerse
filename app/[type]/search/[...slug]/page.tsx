@@ -61,8 +61,9 @@ export const generateMetadata = async ({
 const Movies = async ({ params }: MoviesProps) => {
   const { slug } = await params;
   const query = slug[slug.length - 1];
+  const path = slug[slug.length - 2];
 
-  return <MoviesClient query={query} />;
+  return <MoviesClient query={query} type={path} />;
 };
 
 export default Movies;

@@ -22,6 +22,7 @@ const DiscoverClient = ({ path }: DiscoverClientProps) => {
 
   const content = data?.results ?? [];
   const totalPages = data?.total_pages ?? 0;
+  const type = path.split("/");
 
   if (isLoading) return <Loader />;
 
@@ -30,7 +31,7 @@ const DiscoverClient = ({ path }: DiscoverClientProps) => {
   return (
     <>
       <div>
-        <MovieList movies={content} />
+        <MovieList movies={content} type={type[0]} />
       </div>
       <div>
         {totalPages > 1 && (

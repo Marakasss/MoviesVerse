@@ -9,11 +9,11 @@ import React from "react";
 import css from "./MovieDetails.module.css";
 
 const MovieDetailsClient = () => {
-  const { id } = useParams();
+  const { id, type } = useParams();
 
   const { data: movie } = useQuery({
     queryKey: ["movie", id],
-    queryFn: () => fetchMovieById(String(id)),
+    queryFn: () => fetchMovieById(String(type), String(id)),
     refetchOnMount: false,
   });
 

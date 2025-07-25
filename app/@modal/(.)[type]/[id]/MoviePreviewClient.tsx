@@ -14,16 +14,16 @@ const MoviePreviewClient = () => {
     router.back();
   }, [router]);
 
-  const { id } = useParams();
+  const { id, type } = useParams();
 
   const { data: movie } = useQuery({
     queryKey: ["movie", id],
-    queryFn: () => fetchMovieById(String(id)),
+    queryFn: () => fetchMovieById(String(type), String(id)),
     refetchOnMount: false,
   });
 
   const handleClick = () => {
-    window.location.href = `/movies/${id}`;
+    window.location.href = `/${type}/${id}`;
   };
 
   return (

@@ -7,12 +7,11 @@ import {
 import React from "react";
 import MovieDetailsClient from "./MovieDetails.client";
 import { Metadata } from "next";
-import { usePathname } from "next/navigation";
 
 //Types--------------------------------------
 
 interface MovieDetailsProps {
-  params: Promise<{ id: string }>;
+  params: Promise<{ id: string; type: string }>;
 }
 
 //Metadata--------------------------------------
@@ -20,8 +19,8 @@ interface MovieDetailsProps {
 export const generateMetadata = async ({
   params,
 }: MovieDetailsProps): Promise<Metadata> => {
-  const { id } = await params;
-  const movie = await fetchMovieById(id);
+  const { id, type } = await params;
+  const movie = await fetchMovieById(type, id);
   const title = movie?.title || "Movie Details | MoviesVerse";
   const description =
     movie?.overview?.length > 0
@@ -73,12 +72,12 @@ export const generateMetadata = async ({
 //Component--------------------------------------
 
 const MovieDetails = async ({ params }: MovieDetailsProps) => {
-  const { id } = await params;
+  const { id, type } = await params;
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
     queryKey: ["movie", id],
-    queryFn: () => fetchMovieById(id),
+    queryFn: () => fetchMovieById(type, id),
   });
 
   return (

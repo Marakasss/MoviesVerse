@@ -10,6 +10,7 @@ import Loader from "@/components/Loader/Loader";
 
 interface MoviesClientProps {
   query: string;
+  type?: string;
 }
 
 const MoviesClient = ({ query }: MoviesClientProps) => {
@@ -31,7 +32,7 @@ const MoviesClient = ({ query }: MoviesClientProps) => {
   return (
     <>
       <div>
-        <MovieList movies={movies} />
+        <MovieList movies={movies} type={"movie"} />
       </div>
       <div>
         {totalPages > 1 && (
