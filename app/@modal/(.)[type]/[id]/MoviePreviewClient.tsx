@@ -36,17 +36,18 @@ const MoviePreviewClient = () => {
             ? `https://image.tmdb.org/t/p/original/${movie.poster_path}`
             : "/poster-placeholder.png"
         }
-        alt={movie?.title ?? "Movie Poster"}
+        alt={movie?.title ?? movie?.name ?? "Movie Poster"}
         width={278}
         height={300}
         objectFit="contain"
         className={css.image}
       />
       <div className={css.content}>
-        <h2>{movie?.title}</h2>
+        <h2>{movie?.title ?? movie?.name}</h2>
         <p>{movie?.overview}</p>
         <p>
-          <strong>Release Date:</strong> {movie?.release_date}
+          <strong>Release Date:</strong>{" "}
+          {movie?.release_date ?? movie?.first_air_date}
         </p>
         <p>
           <strong>Rating:</strong> {`${movie?.vote_average}/10`}

@@ -15,7 +15,7 @@ const MovieList = ({ movies, type }: MovieGridProps) => {
         .slice()
         .sort((a, b) => b.popularity - a.popularity)
         .map((movie) => {
-          const { id, poster_path, title } = movie;
+          const { id, poster_path, title, name } = movie;
 
           return (
             <li key={id}>
@@ -33,7 +33,7 @@ const MovieList = ({ movies, type }: MovieGridProps) => {
                     width={278}
                     height={300}
                   />
-                  <h2 className={css.title}>{title}</h2>
+                  <h2 className={css.title}>{title || name}</h2>
                 </div>
               </Link>
             </li>

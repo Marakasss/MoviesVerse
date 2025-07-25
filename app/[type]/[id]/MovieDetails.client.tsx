@@ -35,8 +35,12 @@ const MovieDetailsClient = () => {
       />
       <div className={css.descrWrapper}>
         <h2 className={css.title}>
-          {movie?.title}{" "}
-          {movie?.release_date ? `(${movie?.release_date.slice(0, 4)})` : ""}
+          {movie?.title ?? movie?.name}{" "}
+          {movie?.release_date
+            ? `(${movie.release_date.slice(0, 4)})`
+            : movie?.first_air_date
+            ? `(${movie.first_air_date.slice(0, 4)})`
+            : ""}
         </h2>
         <div className={css.genresWrp}>
           <p className={css.info}>
@@ -50,7 +54,11 @@ const MovieDetailsClient = () => {
         </div>
         <p>
           <strong className={css.info}>Release Date:</strong>{" "}
-          {movie?.release_date ? movie?.release_date : "no info"}
+          {movie?.release_date
+            ? movie.release_date
+            : movie?.first_air_date
+            ? movie.first_air_date
+            : ""}
         </p>
 
         <p>

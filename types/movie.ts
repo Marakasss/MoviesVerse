@@ -12,6 +12,8 @@ export interface Movie {
   production_companies: Company[];
   production_countries: Countries[];
   popularity: number;
+  name?: string;
+  first_air_date?: string;
 }
 
 export interface Genre {
