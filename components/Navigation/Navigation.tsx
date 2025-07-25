@@ -56,22 +56,22 @@ const Navigation = () => {
           {activeMenu === "movies" && (
             <ul ref={menuRef} className={css.menuList}>
               <li>
-                <Link className={css.link} href="/movies">
+                <Link className={css.link} href="/discover/movie/now_playing">
                   Now playing
                 </Link>
               </li>
               <li>
-                <Link className={css.link} href="/tv-series">
+                <Link className={css.link} href="/discover/movie/popular">
                   Popular
                 </Link>
               </li>
               <li>
-                <Link className={css.link} href="/people">
+                <Link className={css.link} href="/discover/movie/top_rated">
                   Top rated
                 </Link>
               </li>
               <li>
-                <Link className={css.link} href="/people">
+                <Link className={css.link} href="/discover/movie/upcoming">
                   Upcoming
                 </Link>
               </li>
@@ -94,22 +94,22 @@ const Navigation = () => {
           {activeMenu === "tv" && (
             <ul ref={menuRef} className={css.menuList}>
               <li>
-                <Link className={css.link} href="/movies">
+                <Link className={css.link} href="/discover/tv/airing_today">
                   Airing Today
                 </Link>
               </li>
               <li>
-                <Link className={css.link} href="/tv-series">
+                <Link className={css.link} href="/discover/tv/on_the_air">
                   On The Air
                 </Link>
               </li>
               <li>
-                <Link className={css.link} href="/people">
+                <Link className={css.link} href="/discover/tv/popular">
                   Popular
                 </Link>
               </li>
               <li>
-                <Link className={css.link} href="/people">
+                <Link className={css.link} href="/discover/tv/top_rated">
                   Top Rated
                 </Link>
               </li>

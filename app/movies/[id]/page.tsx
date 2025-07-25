@@ -7,6 +7,7 @@ import {
 import React from "react";
 import MovieDetailsClient from "./MovieDetails.client";
 import { Metadata } from "next";
+import { usePathname } from "next/navigation";
 
 //Types--------------------------------------
 

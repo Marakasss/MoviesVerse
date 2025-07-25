@@ -38,14 +38,21 @@ export default async function fetchMovies(
 
 // Fetch movie details by ID
 // Returns a single movie object
-export async function fetchMovieById(id: string): Promise<Movie> {
-  const response = await api.get<Movie>(`/movie/${id}`);
+export async function fetchMovieById(path: string, id: string): Promise<Movie> {
+  const response = await api.get<Movie>(`/${path}/${id}`);
   return response.data;
 }
 
 export async function fetchPopularMovies(page: number = 1) {
   const response = await api.get<MoviesResponse>("/movie/popular", {
     params: { page, include_adult: false },
+  });
+  return response.data;
+}
+
+export async function fetchDiscoveredContent(path: string, page: number = 1) {
+  const response = await api.get<MoviesResponse>(`/${path}`, {
+    params: { page },
   });
   return response.data;
 }
