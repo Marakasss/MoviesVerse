@@ -1,0 +1,55 @@
+.menuListItem {
+  position: relative;
+  transition: box-shadow 0.3s ease;
+}
+
+.navButton {
+  background-color: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: azure;
+  padding: 24px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.navButton:hover {
+  color: #ffea05;
+  box-shadow: rgb(1, 27, 49) 3px 3px 6px 0px inset,
+    rgba(5, 32, 99, 0.5) -3px -3px 6px 1px inset;
+}
+
+.navigation {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.menuList {
+  position: absolute;
+  top: calc(100% + 16px);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  color: azure;
+  padding: 28px;
+  background: linear-gradient(135deg, #032541, #06517e);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  border-radius: 8px;
+  white-space: nowrap;
+  box-shadow: rgba(0, 0, 0, 0.522) 0px 14px 28px,
+    rgba(0, 0, 0, 0.511) 0px 10px 10px;
+}
+.link {
+  font-size: 18px;
+  font-weight: 400;
+}
+.link:hover {
+  color: #ffea05;
+}

@@ -5,6 +5,7 @@ import css from "./Header.module.css";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
+import Navigation from "../Navigation/Navigation";
 
 const Header = () => {
   const router = useRouter();
@@ -32,7 +33,7 @@ const Header = () => {
             <Image src="/logo.png" alt="logo" width={180} height={80} />
           </Link>
         </div>
-
+        <Navigation />
         <form action={handleSubmit} className={css.form}>
           <div className={css.inputGroup}>
             <input
