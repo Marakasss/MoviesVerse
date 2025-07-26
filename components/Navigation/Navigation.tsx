@@ -5,7 +5,8 @@ import css from "./Navigation.module.css";
 const Navigation = () => {
   const [activeMenu, setActiveMenu] = useState<null | string>(null);
   const [isHover, setIsHover] = useState<boolean>(false);
-  const menuRef = useRef<HTMLUListElement>(null);
+  const moviesMenuRef = useRef<HTMLUListElement>(null);
+  const tvMenuRef = useRef<HTMLUListElement>(null);
 
   //Toggle menu on click
   const toggleMenu = (menuName: string) => {
@@ -14,7 +15,15 @@ const Navigation = () => {
 
   //Close menu on click outside
   const handleClickOutside = (event: MouseEvent) => {
-    if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+    const target = event.target as Node;
+    if (
+      (activeMenu === "movies" &&
+        moviesMenuRef.current &&
+        !moviesMenuRef.current.contains(target)) ||
+      (activeMenu === "tv" &&
+        tvMenuRef.current &&
+        !tvMenuRef.current.contains(target))
+    ) {
       setActiveMenu(null);
     }
   };
@@ -54,7 +63,7 @@ const Navigation = () => {
             MOVIES
           </button>
           {activeMenu === "movies" && (
-            <ul ref={menuRef} className={css.menuList}>
+            <ul ref={moviesMenuRef} className={css.menuList}>
               <li>
                 <Link className={css.link} href="/discover/movie/now_playing">
                   Now playing
@@ -92,7 +101,7 @@ const Navigation = () => {
             TV SERIES
           </button>
           {activeMenu === "tv" && (
-            <ul ref={menuRef} className={css.menuList}>
+            <ul ref={tvMenuRef} className={css.menuList}>
               <li>
                 <Link className={css.link} href="/discover/tv/airing_today">
                   Airing Today
