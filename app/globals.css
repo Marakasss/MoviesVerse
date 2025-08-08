@@ -1,16 +1,21 @@
 @import "modern-normalize";
 @import "reset.css";
 body {
-  font-family: var(--font-montserat), sans-serif;
+  font-family: var(--font-sour-gummy), sans-serif;
   display: flex;
   margin: 0 auto;
   flex-direction: column;
   min-height: 100vh;
   margin: 0;
   background-color: #f8f9fa;
-  background: linear-gradient(135deg, #011f35, #043452), url("/background.jpg");
+  background: radial-gradient(
+    circle,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(13, 13, 15, 1) 69%,
+    rgba(39, 41, 3, 1) 100%
+  );
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  padding-top: 75px;
+  padding-top: 85px;
 }

@@ -1,4 +1,4 @@
-import { Montserrat } from "next/font/google";
+import { Sour_Gummy } from "next/font/google";
 import "./globals.css";
 import TanStackProvider from "@/components/TanStackProvider/TanStackProvider";
 import Header from "@/components/Header/Header";
@@ -8,10 +8,10 @@ import { Metadata } from "next";
 
 //Fonts----------------------------------------
 
-const montserat = Montserrat({
+const sour_gummy = Sour_Gummy({
   subsets: ["latin"],
   weight: ["400", "700", "900"],
-  variable: "--font-montserat",
+  variable: "--font-sour-gummy",
   display: "swap",
 });
 
@@ -65,7 +65,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={montserat.variable}>
+      <body className={sour_gummy.variable}>
         <TanStackProvider>
           <Toaster />
 

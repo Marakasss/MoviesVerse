@@ -1,4 +1,4 @@
-import { Movie } from "@/types/movie";
+import { Movie, Trailer } from "@/types/movie";
 import axios from "axios";
 
 const TMDB_TOKEN = process.env.NEXT_PUBLIC_TMDB_TOKEN;
@@ -50,9 +50,25 @@ export async function fetchPopularMovies(page: number = 1) {
   return response.data;
 }
 
+export async function fetchUpcomingMovies(page: number = 1) {
+  const response = await api.get<MoviesResponse>("/movie/upcoming", {
+    params: { page, include_adult: false },
+  });
+  return response.data;
+}
+
 export async function fetchDiscoveredContent(path: string, page: number = 1) {
   const response = await api.get<MoviesResponse>(`/${path}`, {
     params: { page },
   });
   return response.data;
+}
+
+export async function fetchMovieTrailer(
+  id: string
+): Promise<Trailer | undefined> {
+  const response = await api.get<{ results: Trailer[] }>(`/movie/${id}/videos`);
+  return response.data.results.find(
+    (trailer) => trailer.site === "YouTube" && trailer.type === "Trailer"
+  );
 }

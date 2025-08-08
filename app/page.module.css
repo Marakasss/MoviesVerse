@@ -1,13 +1,15 @@
-.homePageWrapper {
+.randomMovie {
   display: flex;
   overflow-x: hidden;
-  min-height: 80vh;
-  width: 100%;
-  margin: 0;
+  flex-direction: column;
+  gap: 42px;
+  padding: 32px;
+  max-width: 1440px;
+  margin: 0 auto;
+  border-radius: 16px;
   background-color: #f8f9fa;
   background: linear-gradient(135deg, #011f35, #043452);
   background-size: cover;
-  background-attachment: fixed;
   background-position: center;
 }
 
@@ -25,7 +27,7 @@
   display: inline-block;
   box-sizing: content-box;
   padding: 12px;
-
+  margin-bottom: 388px;
   background-color: transparent;
   border-radius: 18px;
   color: azure;
@@ -38,17 +40,34 @@
 
 .description {
   font-size: 24px;
-  font-weight: 900;
-  color: azure;
-  text-shadow: 1px 1px 2px black, /* тінь знизу справа */ -1px -1px 2px black,
-    /* тінь зверху зліва */ 1px -1px 2px black,
-    /* тінь зверху справа */ -1px 1px 2px black; /* тінь знизу зліва */
-  font-weight: 700;
+
+  color: rgb(255, 210, 61);
+  align-self: center;
+  font-weight: 300;
   margin-bottom: auto;
-  align-self: flex-end;
-  max-width: 800px;
+  padding: 24px;
+  margin-bottom: 32px;
+
   box-sizing: border-box;
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 16px;
+}
+
+.about {
+  background-image: url("/creative.jpg");
+  background-size: cover;
+  background-position: center;
+  padding: 32px 32px 32px 12px;
+  max-width: 1440px;
+  margin: 0 auto;
+  border-radius: 16px;
+  margin-bottom: 24px;
+  margin-top: 24px;
 }
 
 .movieSwiperWrp {
@@ -57,4 +76,25 @@
   align-self: center;
   overflow-x: hidden;
   margin-top: 80px;
+}
+
+.titleLine {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* відстань між словом і лінією */
+  font-weight: bold;
+  font-size: 24px;
+  color: rgb(230, 176, 13);
+  text-transform: uppercase;
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 12px;
+  max-width: 1440px;
+}
+
+.titleLine::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: rgb(230, 176, 13);
 }

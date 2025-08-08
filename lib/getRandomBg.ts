@@ -16,19 +16,12 @@ export async function getRandomBackdropUrl(): Promise<string | null> {
     return null;
   }
   const randomPage = Math.floor(Math.random() * 500) + 1;
-  const studios = "174,33,420,33,2,5,3060,4,12,21,1632,7,3,13769,923,2251,6704";
-
   const { data } = await axios.get<TMDBResponse>(
-    "https://api.themoviedb.org/3/movie/popular",
+    "https://api.themoviedb.org/3/movie/top_rated",
     {
       params: {
-        sort_by: "vote_average.desc",
-        "vote_count.gte": 50000,
-        "vote_average.gte": 8.5,
-        "primary_release_date.gte": "2005-01-01",
         include_adult: false,
         page: randomPage,
-        with_companies: studios,
       },
       headers: {
         Authorization: `Bearer ${TMDB_TOKEN}`,
@@ -42,3 +35,4 @@ export async function getRandomBackdropUrl(): Promise<string | null> {
   const randomMovie = movies[Math.floor(Math.random() * movies.length)];
   return `https://image.tmdb.org/t/p/original/${randomMovie.backdrop_path}`;
 }
+// https://media.themoviedb.org/t/p/w880_and_h600_multi_faces_filter(duotone,00192f,00baff)/pQvqGK6KQDILL7SJrhMQsRvJfLB.jpg

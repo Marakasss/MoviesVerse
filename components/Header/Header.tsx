@@ -30,7 +30,7 @@ const Header = () => {
       <div className={css.container}>
         <div className={css.logowrp}>
           <Link className={css.link} href="/" rel="noopener noreferrer">
-            <Image src="/logo.png" alt="logo" width={180} height={80} />
+            <Image src="/logo.png" alt="logo" width={180} height={120} />
           </Link>
         </div>
         <Navigation />

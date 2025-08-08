@@ -9,16 +9,18 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: azure;
+  color: rgb(230, 186, 13);
   padding: 24px;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: bold;
+  border-radius: 22px;
 }
 
 .navButton:hover {
   color: #ffea05;
-  box-shadow: rgb(1, 27, 49) 3px 3px 6px 0px inset,
-    rgba(5, 32, 99, 0.5) -3px -3px 6px 1px inset;
+  box-shadow: rgba(229, 210, 9, 0.2) 0px 4px 8px,
+    rgba(218, 187, 10, 0.2) 0px 6px 20px;
+  transform: translateY(-2px);
 }
 
 .navigation {

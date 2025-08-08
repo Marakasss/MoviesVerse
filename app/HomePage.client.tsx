@@ -4,8 +4,8 @@ import React, { useEffect, useState } from "react";
 import css from "./page.module.css";
 import { getRandomBackdropUrl } from "@/lib/getRandomBg";
 import { useQuery } from "@tanstack/react-query";
-
-import MovieSwiper from "@/components/MovieSwiper/MovieSwiper";
+import UpcomingMovieSwiper from "@/components/UpcomingMovieSwiper/UpcomingMovieSwiper";
+import PopularMovieSwiper from "@/components/PopularMovieSwiper/PopularMovieSwiper";
 
 const HomePageClient = () => {
   const [backGround, setBackground] = useState<string | null>(null);
@@ -26,20 +26,11 @@ const HomePageClient = () => {
   }, [bgQuery.data]);
 
   return (
-    <div
-      className={css.homePageWrapper}
-      style={{ backgroundImage: `url(${backGround})` }}
-    >
-      <div className={css.contentWrapper}>
-        <div className={css.header}>
-          <h1>
-            Not sure what to watch?
-            <br /> Start exploring.
-            <br /> Let the perfect movie find you.
-          </h1>
-        </div>
-
+    <div>
+      <div className={css.about}>
         <div className={css.description}>
+          <h1 className={css.title}>Welcome</h1>
+          <p> Millions of movies, TV shows, and more. Explore now.</p> <br />
           <p>
             MovieVerse is a fast and user-friendly movie search app powered by
             The Movie Database (TMDB) API. Whether you&#39;re planning a movie
@@ -54,10 +45,32 @@ const HomePageClient = () => {
             efficient data fetching and caching, ensuring fast performance and a
             seamless user experience.
           </p>
+          <br />
           <p>Start typing to find your next favorite movie. 🍿</p>
         </div>
+      </div>
+      <div
+        className={css.randomMovie}
+        style={{ backgroundImage: `url(${backGround})` }}
+      >
+        {" "}
+        <div className={css.header}>
+          <h1>
+            Not sure what to watch?
+            <br /> Start exploring.
+            <br /> Let the perfect movie find you.
+          </h1>
+        </div>
+      </div>
+      <div className={css.contentWrapper}>
         <div className={css.movieSwiperWrp}>
-          <MovieSwiper />
+          <div className={css.titleLine}>POPULAR</div>
+          <PopularMovieSwiper />
+        </div>
+
+        <div>
+          <div className={css.titleLine}>UPCOMING</div>
+          <UpcomingMovieSwiper />
         </div>
       </div>
     </div>

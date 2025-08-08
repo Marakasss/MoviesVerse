@@ -1,0 +1,16 @@
+.imageWrp {
+  padding: 6px;
+  background-color: aliceblue;
+  border-radius: 8px;
+  overflow-x: hidden;
+}
+.homeSwiper {
+  padding: 12px 0;
+}
+.image {
+  overflow: hidden;
+}
+
+.swiper-pagination {
+  margin-top: 12px !important;
+}
