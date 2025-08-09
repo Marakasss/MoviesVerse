@@ -11,13 +11,25 @@ import { FreeMode, Pagination } from "swiper/modules";
 import Link from "next/link";
 import Image from "next/image";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { fetchUpcomingMovies } from "@/lib/api";
+import { fetchDiscoveredContent } from "@/lib/api";
 
-const UpcomingMovieSwiper = () => {
+interface FreeModeSwiperProps {
+  queryKey: string[];
+  path: string;
+  linkPrefix?: string;
+  slidesPerView?: number;
+}
+
+const FreeModeSwiper = ({
+  queryKey,
+  path,
+  linkPrefix,
+  slidesPerView,
+}: FreeModeSwiperProps) => {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useInfiniteQuery({
-      queryKey: ["upcomingmovies"],
-      queryFn: ({ pageParam = 1 }) => fetchUpcomingMovies(pageParam),
+      queryKey: queryKey,
+      queryFn: ({ pageParam = 1 }) => fetchDiscoveredContent(path, pageParam),
       getNextPageParam: (lastPage, allPages) => {
         const nextPage = allPages.length + 1;
         return nextPage <= lastPage.total_pages ? nextPage : undefined;
@@ -37,7 +49,7 @@ const UpcomingMovieSwiper = () => {
     <>
       <Swiper
         onSlideChange={handleSlideChange}
-        slidesPerView={6}
+        slidesPerView={slidesPerView}
         spaceBetween={30}
         freeMode={true}
         pagination={false}
@@ -47,10 +59,10 @@ const UpcomingMovieSwiper = () => {
         {movies?.map((movie) => {
           return (
             <SwiperSlide key={movie.imdb_id}>
-              <Link href={`/movie/${movie.id}`}>
+              <Link href={`/${linkPrefix}/${movie.id}`}>
                 <Image
                   src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                  alt={movie.title}
+                  alt={movie.title ?? movie.name}
                   width={200}
                   height={200}
                   className={css.image}
@@ -63,4 +75,4 @@ const UpcomingMovieSwiper = () => {
     </>
   );
 };
-export default UpcomingMovieSwiper;
+export default FreeModeSwiper;

@@ -8,6 +8,7 @@ import { useParams } from "next/navigation";
 import React from "react";
 import css from "./MovieDetails.module.css";
 import Trailer from "@/components/Trailer/Trailer";
+import Reviews from "@/components/Reviews/Reviews";
 
 const MovieDetailsClient = () => {
   const { id, type } = useParams();
@@ -74,8 +75,8 @@ const MovieDetailsClient = () => {
             </p>
             <ul className={css.genres}>
               {movie?.production_countries
-                ? movie?.production_countries.map(({ name }) => (
-                    <li key={name}>{name}</li>
+                ? movie?.production_countries.map(({ name }, index) => (
+                    <li key={name ?? index}>{name}</li>
                   ))
                 : "no info"}
             </ul>
@@ -111,7 +112,11 @@ const MovieDetailsClient = () => {
         </div>
         <div className={css.trailerWrapper}></div>
       </div>
-      <Trailer id={String(id)} />
+      <Trailer type={String(type)} id={String(id)} />
+
+      <div>
+        <Reviews type={String(type)} id={String(id)} />
+      </div>
     </>
   );
 };

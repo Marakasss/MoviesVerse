@@ -2,33 +2,33 @@
   display: flex;
   justify-content: center;
   gap: 10px;
-  margin: 32px 0;
+  margin-top: auto;
   list-style: none;
-  padding: 0;
+
   user-select: none;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: transparent;
+  padding: 12px;
+  border-radius: 30px;
 }
 
 .pagination li {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  overflow: hidden;
-  background: white;
-  border: 1px solid rgba(3, 37, 65, 0.12);
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.3s ease, background 0.3s ease;
+  width: 36px;
+  height: 36px;
+  background-color: #191919;
+  border-radius: 8px;
+  transition: background-color 0.2s ease;
+}
 
-  /* мʼякий обʼєм */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05),
-    inset 0 1px 1px rgba(255, 255, 255, 0.6);
+.pagination li:first-child {
+  border-radius: 20px 8px 8px 20px;
+}
+
+.pagination li:last-child {
+  border-radius: 8px 20px 20px 8px;
 }
 
 .pagination li:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12),
-    inset 0 1px 2px rgba(255, 255, 255, 0.5);
-  background: rgba(10, 102, 194, 0.06);
+  background-color: #b5a243;
 }
 
 .pagination a {
@@ -38,17 +38,32 @@
   width: 100%;
   height: 100%;
   font-weight: 500;
-  font-size: 16px;
-  color: rgba(3, 37, 65, 0.9);
+  font-size: 12px;
+  color: azure;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: background-color 0.2s ease;
 }
 
 .pagination .active {
-  background: linear-gradient(135deg, #0a66c2, #1a88ff);
-  color: white;
-  font-weight: 600;
-  border: none;
-  box-shadow: 0 6px 18px rgba(10, 102, 194, 0.4);
+  background-color: rgb(230, 186, 13);
+  color: #212121;
   transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .pagination {
+    gap: 4px;
+    padding: 6px;
+  }
+
+  .pagination li {
+    width: 24px;
+    height: 24px;
+    border-radius: 8px;
+  }
+
+  .pagination a {
+    font-weight: 300;
+    font-size: 10px;
+  }
 }

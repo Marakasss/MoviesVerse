@@ -36,3 +36,10 @@ export interface Trailer {
   site: string;
   type: string;
 }
+
+export interface Reviews {
+  author: string;
+  content: string;
+  created_at: string;
+  id: string;
+}

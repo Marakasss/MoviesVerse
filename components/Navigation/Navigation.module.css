@@ -37,7 +37,7 @@
   z-index: 1000;
   color: azure;
   padding: 28px;
-  background: linear-gradient(135deg, #032541, #06517e);
+  background: #1a1a1a;
   display: flex;
   flex-direction: column;
   align-items: center;

@@ -4,8 +4,9 @@ import React, { useEffect, useState } from "react";
 import css from "./page.module.css";
 import { getRandomBackdropUrl } from "@/lib/getRandomBg";
 import { useQuery } from "@tanstack/react-query";
-import UpcomingMovieSwiper from "@/components/UpcomingMovieSwiper/UpcomingMovieSwiper";
+
 import PopularMovieSwiper from "@/components/PopularMovieSwiper/PopularMovieSwiper";
+import FreeModeSwiper from "@/components/FreeModeSwiper/FreeModeSwiper";
 
 const HomePageClient = () => {
   const [backGround, setBackground] = useState<string | null>(null);
@@ -64,13 +65,38 @@ const HomePageClient = () => {
       </div>
       <div className={css.contentWrapper}>
         <div className={css.movieSwiperWrp}>
-          <div className={css.titleLine}>POPULAR</div>
+          <div className={css.titleLine}>POPULAR MOVIES</div>
           <PopularMovieSwiper />
         </div>
 
         <div>
-          <div className={css.titleLine}>UPCOMING</div>
-          <UpcomingMovieSwiper />
+          <div className={css.titleLine}>UPCOMING MOVIES</div>
+          <FreeModeSwiper
+            queryKey={["upcomingMovies"]}
+            path={"movie/upcoming"}
+            linkPrefix="movie"
+            slidesPerView={6}
+          />
+        </div>
+
+        <div>
+          <div className={css.titleLine}>POPULAR TV SERIES</div>
+          <FreeModeSwiper
+            queryKey={["popularSeries"]}
+            path={"tv/popular"}
+            linkPrefix="tv"
+            slidesPerView={6}
+          />
+        </div>
+
+        <div>
+          <div className={css.titleLine}>AIRING TOODAY TV SERIES</div>
+          <FreeModeSwiper
+            queryKey={["todaysSeries"]}
+            path={"tv/airing_today"}
+            linkPrefix="tv"
+            slidesPerView={6}
+          />
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import { Movie, Trailer } from "@/types/movie";
+import { Movie, Reviews, Trailer } from "@/types/movie";
 import axios from "axios";
 
 const TMDB_TOKEN = process.env.NEXT_PUBLIC_TMDB_TOKEN;
@@ -50,13 +50,6 @@ export async function fetchPopularMovies(page: number = 1) {
   return response.data;
 }
 
-export async function fetchUpcomingMovies(page: number = 1) {
-  const response = await api.get<MoviesResponse>("/movie/upcoming", {
-    params: { page, include_adult: false },
-  });
-  return response.data;
-}
-
 export async function fetchDiscoveredContent(path: string, page: number = 1) {
   const response = await api.get<MoviesResponse>(`/${path}`, {
     params: { page },
@@ -65,10 +58,25 @@ export async function fetchDiscoveredContent(path: string, page: number = 1) {
 }
 
 export async function fetchMovieTrailer(
+  type: string,
   id: string
-): Promise<Trailer | undefined> {
-  const response = await api.get<{ results: Trailer[] }>(`/movie/${id}/videos`);
-  return response.data.results.find(
+): Promise<Trailer | null> {
+  const response = await api.get<{ results: Trailer[] }>(
+    `/${type}/${id}/videos`
+  );
+  const trailer = response.data.results.find(
     (trailer) => trailer.site === "YouTube" && trailer.type === "Trailer"
   );
+
+  return trailer ?? null;
+}
+
+export async function fetchReviews(
+  type: string,
+  id: string
+): Promise<Reviews[]> {
+  const response = await api.get<{ results: Reviews[] }>(
+    `/${type}/${id}/reviews`
+  );
+  return response.data.results;
 }

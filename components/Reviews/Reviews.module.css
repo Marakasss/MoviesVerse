@@ -1,0 +1,68 @@
+.details {
+  border-radius: 6px;
+  padding: 16px;
+  margin-bottom: 0.5rem;
+  background: transparent;
+  transition: background 0.3s ease;
+  color: azure;
+  backdrop-filter: blur(10px);
+
+  box-shadow: inset 0 1px 4px rgba(252, 222, 29, 0.104),
+    inset 0 1px 10px rgba(197, 164, 33, 0.159),
+    inset 0 18px 50px -48px rgba(206, 180, 10, 0.141);
+}
+
+.details[open] {
+  background: #0000002f; /* світло-жовтий при відкритті */
+}
+
+.summary {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  outline: none;
+  list-style: none;
+  position: relative;
+  padding-left: 1.2rem;
+}
+
+/* Прибрати стандартний маркер браузера */
+.summary::-webkit-details-marker {
+  display: none;
+}
+.summary::marker {
+  display: none;
+}
+
+/* Кастомний маркер-стрілочка */
+.summary::before {
+  content: "▶";
+  position: absolute;
+  right: 0;
+  transition: transform 0.3s ease;
+  font-size: 0.8rem;
+  color: #fdfcfa;
+}
+
+.details[open] .summary::before {
+  transform: rotate(90deg);
+}
+
+.details .paragraph {
+  margin: 0.5rem 0 0;
+  font-size: 0.95rem;
+  color: #f0f1e4;
+  line-height: 1.4;
+}
+
+.reviews {
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
+.title {
+  font-size: 32px;
+  text-align: center;
+  color: azure;
+  margin: 32px auto;
+}

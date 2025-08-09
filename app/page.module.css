@@ -71,7 +71,7 @@
 }
 
 .movieSwiperWrp {
-  width: 100vw;
+  width: 100%;
 
   align-self: center;
   overflow-x: hidden;
@@ -87,8 +87,8 @@
   color: rgb(230, 176, 13);
   text-transform: uppercase;
   position: relative;
-  margin: 0 auto;
-  margin-bottom: 12px;
+  margin: 32px auto;
+
   max-width: 1440px;
 }
 
