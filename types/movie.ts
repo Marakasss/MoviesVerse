@@ -43,3 +43,10 @@ export interface Reviews {
   created_at: string;
   id: string;
 }
+
+export interface Person {
+  id: number;
+  name: string;
+  profile_path: string;
+  known_for: Movie[];
+}

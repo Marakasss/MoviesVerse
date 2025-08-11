@@ -1,4 +1,4 @@
-import { Movie, Reviews, Trailer } from "@/types/movie";
+import { Movie, Person, Reviews, Trailer } from "@/types/movie";
 import axios from "axios";
 
 const TMDB_TOKEN = process.env.NEXT_PUBLIC_TMDB_TOKEN;
@@ -8,6 +8,12 @@ if (!TMDB_TOKEN) {
 
 export interface MoviesResponse {
   results: Movie[];
+  page: number;
+  total_pages: number;
+}
+
+export interface PersonsResponse {
+  results: Person[];
   page: number;
   total_pages: number;
 }
@@ -79,4 +85,9 @@ export async function fetchReviews(
     `/${type}/${id}/reviews`
   );
   return response.data.results;
+}
+
+export async function fetchPersons(): Promise<PersonsResponse> {
+  const response = await api.get<PersonsResponse>("/person/popular");
+  return response.data;
 }

@@ -5,6 +5,7 @@ import { useQuery } from "@tanstack/react-query";
 import InfiniteMenu from "../InfiniteMenu/InfiniteMenu";
 import React from "react";
 import { fetchDiscoveredContent } from "@/lib/api";
+import css from "./InfinityMoviesSphere.module.css";
 
 const InfinityMoviesSphere = () => {
   const { data: movies } = useQuery({
@@ -28,17 +29,20 @@ const InfinityMoviesSphere = () => {
   console.log("InfinityMoviesSphere items:", items);
 
   return (
-    <div
-      style={{
-        height: "600px",
-        maxWidth: "1440px",
-        position: "relative",
-        backgroundColor: "transparent",
-        margin: "0 auto",
-      }}
-    >
-      <InfiniteMenu items={items} />
-    </div>
+    <>
+      <p className={css.title}>Swipe to choose a movie</p>{" "}
+      <div
+        style={{
+          height: "600px",
+          maxWidth: "1440px",
+          position: "relative",
+          backgroundColor: "transparent",
+          margin: "0 auto",
+        }}
+      >
+        <InfiniteMenu items={items} />
+      </div>
+    </>
   );
 };
 

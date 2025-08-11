@@ -126,7 +126,9 @@ const Navigation = () => {
           )}
         </li>
         <li className={css.menuListItem}>
-          <button className={css.navButton}>PEOPLE</button>
+          <Link className={css.navButton} href="/persons">
+            PERSONS
+          </Link>
         </li>
         <li className={css.menuListItem}>
           <button className={css.navButton}>GENRES</button>
