@@ -7,25 +7,10 @@ import { useQuery } from "@tanstack/react-query";
 
 import PopularMovieSwiper from "@/components/PopularMovieSwiper/PopularMovieSwiper";
 import FreeModeSwiper from "@/components/FreeModeSwiper/FreeModeSwiper";
+import InfinityMoviesSphere from "@/components/InfinityMoviesSphere/InfinityMoviesSphere";
+import RandomBackdropSection from "@/components/RandomBackdropSection/RandomBackdropSection";
 
 const HomePageClient = () => {
-  const [backGround, setBackground] = useState<string | null>(null);
-
-  //FETCH RANDOM POSTERS FOR PAGE BACKDROP
-
-  const bgQuery = useQuery({
-    queryKey: ["bg"],
-    queryFn: getRandomBackdropUrl,
-    refetchInterval: 8000,
-  });
-
-  useEffect(() => {
-    if (!bgQuery.data) return;
-    const img = new Image();
-    img.src = bgQuery.data;
-    img.onload = () => setBackground(bgQuery.data);
-  }, [bgQuery.data]);
-
   return (
     <div>
       <div className={css.about}>
@@ -50,19 +35,7 @@ const HomePageClient = () => {
           <p>Start typing to find your next favorite movie. 🍿</p>
         </div>
       </div>
-      <div
-        className={css.randomMovie}
-        style={{ backgroundImage: `url(${backGround})` }}
-      >
-        {" "}
-        <div className={css.header}>
-          <h1>
-            Not sure what to watch?
-            <br /> Start exploring.
-            <br /> Let the perfect movie find you.
-          </h1>
-        </div>
-      </div>
+      <RandomBackdropSection />
       <div className={css.contentWrapper}>
         <div className={css.movieSwiperWrp}>
           <div className={css.titleLine}>POPULAR MOVIES</div>
@@ -99,6 +72,7 @@ const HomePageClient = () => {
           />
         </div>
       </div>
+      <InfinityMoviesSphere />
     </div>
   );
 };
