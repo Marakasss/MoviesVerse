@@ -1,10 +1,5 @@
 "use client";
-
-import React, { useEffect, useState } from "react";
 import css from "./page.module.css";
-import { getRandomBackdropUrl } from "@/lib/getRandomBg";
-import { useQuery } from "@tanstack/react-query";
-
 import PopularMovieSwiper from "@/components/PopularMovieSwiper/PopularMovieSwiper";
 import FreeModeSwiper from "@/components/FreeModeSwiper/FreeModeSwiper";
 import InfinityMoviesSphere from "@/components/InfinityMoviesSphere/InfinityMoviesSphere";
