@@ -12,13 +12,14 @@ const PersonsPage = () => {
 
   const items =
     persons?.results.map((person) => ({
+      id: person.id.toString(),
       image: `https://image.tmdb.org/t/p/original${person.profile_path}`,
       title: person.name,
       subtitle: "",
       handle: "",
       borderColor: "#F59E0B",
       gradient: "linear-gradient(165deg, #F59E0B, #000)",
-      url: "https://linkedin.com/in/mikechen",
+      url: `/persons/${person.id.toString()}`,
     })) || [];
 
   return (

@@ -4,7 +4,6 @@ import { fetchDiscoveredContent } from "@/lib/api";
 import { keepPreviousData, useQuery } from "@tanstack/react-query";
 import React, { useState } from "react";
 import css from "../../NotFound.module.css";
-
 import MovieList from "@/components/MovieList/MovieList";
 import Pagination from "@/components/Pagination/Pagination";
 
