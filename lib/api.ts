@@ -44,7 +44,10 @@ export default async function fetchMovies(
 
 // Fetch movie details by ID
 // Returns a single movie object
-export async function fetchMovieById(path: string, id: string): Promise<Movie> {
+export async function fetchContentById(
+  path: string,
+  id: string
+): Promise<Movie> {
   const response = await api.get<Movie>(`/${path}/${id}`);
   return response.data;
 }
@@ -87,7 +90,11 @@ export async function fetchReviews(
   return response.data.results;
 }
 
-export async function fetchPersons(): Promise<PersonsResponse> {
-  const response = await api.get<PersonsResponse>("/person/popular");
+export async function fetchPersons(page: number = 1): Promise<PersonsResponse> {
+  const response = await api.get<PersonsResponse>("/person/popular", {
+    params: { page },
+  });
+  console.log("im fetching");
+
   return response.data;
 }

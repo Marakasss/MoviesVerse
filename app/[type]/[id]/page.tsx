@@ -1,4 +1,4 @@
-import { fetchMovieById } from "@/lib/api";
+import { fetchContentById } from "@/lib/api";
 import {
   dehydrate,
   HydrationBoundary,
@@ -20,7 +20,7 @@ export const generateMetadata = async ({
   params,
 }: MovieDetailsProps): Promise<Metadata> => {
   const { id, type } = await params;
-  const movie = await fetchMovieById(type, id);
+  const movie = await fetchContentById(type, id);
   const title = movie?.title || "Movie Details | MoviesVerse";
   const description =
     movie?.overview?.length > 0
@@ -77,7 +77,7 @@ const MovieDetails = async ({ params }: MovieDetailsProps) => {
 
   await queryClient.prefetchQuery({
     queryKey: ["movie", id],
-    queryFn: () => fetchMovieById(type, id),
+    queryFn: () => fetchContentById(type, id),
   });
 
   return (

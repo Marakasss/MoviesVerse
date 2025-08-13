@@ -20,13 +20,14 @@ const DiscoverClient = ({ path }: DiscoverClientProps) => {
   });
 
   const content = data?.results ?? [];
-  const totalPages = data?.total_pages ?? 0;
+  const totalPages = 500;
   const type = path.split("/");
 
-  if (isLoading) return <Loader />;
+  // Incorrectly respons from the API
+  // const totalPages = data?.total_pages ?? 0;
 
   if (isError) return <p className={css.notFound}>Something went wrong.</p>;
-
+  if (isLoading) return <Loader />;
   return (
     <>
       <div>

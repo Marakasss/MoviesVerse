@@ -1,7 +1,7 @@
 "use client";
 
 import Modal from "@/components/Modal/Modal";
-import { fetchMovieById } from "@/lib/api";
+import { fetchContentById } from "@/lib/api";
 import { useQuery } from "@tanstack/react-query";
 import Image from "next/image";
 import { useParams, useRouter } from "next/navigation";
@@ -14,11 +14,12 @@ const MoviePreviewClient = () => {
     router.back();
   }, [router]);
 
-  const { id, type } = useParams();
+  const { id } = useParams();
+  const type = "tv";
 
   const { data: movie } = useQuery({
     queryKey: ["movie", id],
-    queryFn: () => fetchMovieById(String(type), String(id)),
+    queryFn: () => fetchContentById(String(type), String(id)),
     refetchOnMount: false,
   });
 
