@@ -1,16 +1,19 @@
 import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import css from "./Navigation.module.css";
+import { useIsMobile } from "@/lib/hooks/useIsMobile";
 
 const Navigation = () => {
   const [activeMenu, setActiveMenu] = useState<null | string>(null);
   const [isHover, setIsHover] = useState<boolean>(false);
   const moviesMenuRef = useRef<HTMLUListElement>(null);
   const tvMenuRef = useRef<HTMLUListElement>(null);
+  const isMobile = useIsMobile();
 
   //Toggle menu on click
   const toggleMenu = (menuName: string) => {
     setActiveMenu((prev) => (prev === menuName ? null : menuName));
+    console.log("activeMenu", activeMenu);
   };
 
   //Close menu on click outside
@@ -46,17 +49,22 @@ const Navigation = () => {
   return (
     <nav>
       <ul className={css.navigation}>
-        <li className={css.menuListItem}>
-          <button
-            onClick={() => toggleMenu("movies")}
-            onMouseEnter={() => {
+        <li
+          onMouseEnter={() => {
+            if (!isMobile) {
               setActiveMenu("movies");
               setIsHover(true);
-            }}
-            onMouseLeave={() => {
+            }
+          }}
+          onMouseLeave={() => {
+            if (!isMobile) {
               setIsHover(false);
-              setActiveMenu(null);
-            }}
+            }
+          }}
+          className={css.menuListItem}
+        >
+          <button
+            onClick={() => toggleMenu("movies")}
             className={css.navButton}
           >
             MOVIES
@@ -93,7 +101,6 @@ const Navigation = () => {
           }}
           onMouseLeave={() => {
             setIsHover(false);
-            setActiveMenu(null);
           }}
           className={css.menuListItem}
         >
