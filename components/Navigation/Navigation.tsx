@@ -46,18 +46,17 @@ const Navigation = () => {
   return (
     <nav>
       <ul className={css.navigation}>
-        <li
-          onMouseEnter={() => {
-            setActiveMenu("movies");
-            setIsHover(true);
-          }}
-          onMouseLeave={() => {
-            setIsHover(false);
-          }}
-          className={css.menuListItem}
-        >
+        <li className={css.menuListItem}>
           <button
             onClick={() => toggleMenu("movies")}
+            onMouseEnter={() => {
+              setActiveMenu("movies");
+              setIsHover(true);
+            }}
+            onMouseLeave={() => {
+              setIsHover(false);
+              setActiveMenu(null);
+            }}
             className={css.navButton}
           >
             MOVIES
@@ -94,6 +93,7 @@ const Navigation = () => {
           }}
           onMouseLeave={() => {
             setIsHover(false);
+            setActiveMenu(null);
           }}
           className={css.menuListItem}
         >
