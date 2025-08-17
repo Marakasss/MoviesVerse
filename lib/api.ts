@@ -1,4 +1,4 @@
-import { Movie, Person, Reviews, Trailer } from "@/types/movie";
+import { Genre, Movie, Person, Reviews, Trailer } from "@/types/movie";
 import axios from "axios";
 
 const TMDB_TOKEN = process.env.NEXT_PUBLIC_TMDB_TOKEN;
@@ -59,7 +59,10 @@ export async function fetchPopularMovies(page: number = 1) {
   return response.data;
 }
 
-export async function fetchDiscoveredContent(path: string, page: number = 1) {
+export async function fetchDiscoveredContent(
+  path: string,
+  page: number = 1
+): Promise<MoviesResponse> {
   const response = await api.get<MoviesResponse>(`/${path}`, {
     params: { page },
   });
@@ -96,5 +99,10 @@ export async function fetchPersons(page: number = 1): Promise<PersonsResponse> {
   });
   console.log("im fetching");
 
+  return response.data;
+}
+
+export async function fetchGenresList(): Promise<{ genres: Genre[] }> {
+  const response = await api.get<{ genres: Genre[] }>("/genre/movie/list");
   return response.data;
 }

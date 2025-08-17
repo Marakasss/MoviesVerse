@@ -2,12 +2,16 @@ import Link from "next/link";
 import React, { useEffect, useRef, useState } from "react";
 import css from "./Navigation.module.css";
 import { useIsMobile } from "@/lib/hooks/useIsMobile";
+import MoviesNavMenu from "../MoviesNavMenu/MoviesNavMenu";
+import TvNavMenu from "../TvNavMenu/TvNavMenu";
+import { GenresNavMenu } from "../GenresNavMenu/GenresNavMenu";
 
 const Navigation = () => {
   const [activeMenu, setActiveMenu] = useState<null | string>(null);
   const [isHover, setIsHover] = useState<boolean>(false);
-  const moviesMenuRef = useRef<HTMLUListElement>(null);
-  const tvMenuRef = useRef<HTMLUListElement>(null);
+  const moviesMenuRef = useRef<HTMLDivElement>(null);
+  const tvMenuRef = useRef<HTMLDivElement>(null);
+  const genresMenuRef = useRef<HTMLDivElement>(null);
   const isMobile = useIsMobile();
 
   //Toggle menu on click
@@ -70,37 +74,22 @@ const Navigation = () => {
             MOVIES
           </button>
           {activeMenu === "movies" && (
-            <ul ref={moviesMenuRef} className={css.menuList}>
-              <li>
-                <Link className={css.link} href="/discover/movie/now_playing">
-                  Now playing
-                </Link>
-              </li>
-              <li>
-                <Link className={css.link} href="/discover/movie/popular">
-                  Popular
-                </Link>
-              </li>
-              <li>
-                <Link className={css.link} href="/discover/movie/top_rated">
-                  Top rated
-                </Link>
-              </li>
-              <li>
-                <Link className={css.link} href="/discover/movie/upcoming">
-                  Upcoming
-                </Link>
-              </li>
-            </ul>
+            <div ref={moviesMenuRef}>
+              <MoviesNavMenu />
+            </div>
           )}
         </li>
         <li
           onMouseEnter={() => {
-            setActiveMenu("tv");
-            setIsHover(true);
+            if (!isMobile) {
+              setActiveMenu("tv");
+              setIsHover(true);
+            }
           }}
           onMouseLeave={() => {
-            setIsHover(false);
+            if (!isMobile) {
+              setIsHover(false);
+            }
           }}
           className={css.menuListItem}
         >
@@ -108,28 +97,9 @@ const Navigation = () => {
             TV SERIES
           </button>
           {activeMenu === "tv" && (
-            <ul ref={tvMenuRef} className={css.menuList}>
-              <li>
-                <Link className={css.link} href="/discover/tv/airing_today">
-                  Airing Today
-                </Link>
-              </li>
-              <li>
-                <Link className={css.link} href="/discover/tv/on_the_air">
-                  On The Air
-                </Link>
-              </li>
-              <li>
-                <Link className={css.link} href="/discover/tv/popular">
-                  Popular
-                </Link>
-              </li>
-              <li>
-                <Link className={css.link} href="/discover/tv/top_rated">
-                  Top Rated
-                </Link>
-              </li>
-            </ul>
+            <div ref={tvMenuRef}>
+              <TvNavMenu />
+            </div>
           )}
         </li>
         <li className={css.menuListItem}>
@@ -137,8 +107,31 @@ const Navigation = () => {
             PERSONS
           </Link>
         </li>
-        <li className={css.menuListItem}>
-          <button className={css.navButton}>GENRES</button>
+        <li
+          onMouseEnter={() => {
+            if (!isMobile) {
+              setActiveMenu("genres");
+              setIsHover(true);
+            }
+          }}
+          onMouseLeave={() => {
+            if (!isMobile) {
+              setIsHover(false);
+            }
+          }}
+          className={css.menuListItem}
+        >
+          <button
+            onClick={() => toggleMenu("genres")}
+            className={css.navButton}
+          >
+            GENRES
+          </button>
+          {activeMenu === "genres" && (
+            <div ref={genresMenuRef}>
+              <GenresNavMenu />
+            </div>
+          )}
         </li>
       </ul>
     </nav>
