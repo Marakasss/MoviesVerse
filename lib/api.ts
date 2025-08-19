@@ -103,7 +103,6 @@ export async function fetchPersons(page: number = 1): Promise<PersonsResponse> {
   const response = await api.get<PersonsResponse>("/person/popular", {
     params: { page },
   });
-  console.log("im fetching");
 
   return response.data;
 }
@@ -117,5 +116,16 @@ export async function fetchPersonsFromMovie(
   path: string
 ): Promise<PersonsFromMovieResponse> {
   const response = await api.get<PersonsFromMovieResponse>(path);
+  return response.data;
+}
+
+export async function searchPersons(
+  query: string,
+  page: number
+): Promise<PersonsResponse> {
+  const response = await api.get<PersonsResponse>("/search/person", {
+    params: { query, page },
+  });
+
   return response.data;
 }

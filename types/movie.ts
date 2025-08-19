@@ -51,6 +51,7 @@ export interface Person {
   known_for: Movie[];
   character?: string;
   roles?: Roles[];
+  popularity: number;
 }
 
 export interface Roles {

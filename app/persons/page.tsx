@@ -10,7 +10,7 @@ import React from "react";
 const PersonsPage = async () => {
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({
-    queryKey: ["persons", 1],
+    queryKey: ["persons"],
     queryFn: () => fetchPersons(1),
   });
 
