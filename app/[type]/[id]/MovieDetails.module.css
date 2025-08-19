@@ -87,3 +87,10 @@
   align-items: center;
   justify-content: center;
 }
+
+.swiperTitle {
+  margin: 32px auto;
+  color: azure;
+  font-size: 32px;
+  text-align: center;
+}

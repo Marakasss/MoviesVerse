@@ -9,7 +9,6 @@ interface DiscoverPageProps {
 const Discover = async ({ params, searchParams }: DiscoverPageProps) => {
   const searchParamsObj = await searchParams;
   const searchParamsString = new URLSearchParams(searchParamsObj).toString();
-
   const { slug } = await params;
   const path =
     slug.slice(-2).join("/") +

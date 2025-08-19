@@ -49,4 +49,15 @@ export interface Person {
   name: string;
   profile_path: string;
   known_for: Movie[];
+  character?: string;
+  roles?: Roles[]
 }
+
+
+
+
+export interface Roles  {
+    credit_id: string,
+    character: string,
+    episode_count: number,
+  },

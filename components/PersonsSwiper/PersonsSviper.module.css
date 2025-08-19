@@ -1,0 +1,14 @@
+.swiperWrap {
+  max-width: 1440px;
+  margin: 32px auto;
+}
+
+.image {
+  border-radius: 16px;
+}
+
+.description {
+  text-align: center;
+  color: rgb(223, 202, 18);
+  margin: 12px auto;
+}

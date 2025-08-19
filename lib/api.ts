@@ -18,6 +18,12 @@ export interface PersonsResponse {
   total_pages: number;
 }
 
+export interface PersonsFromMovieResponse {
+  id: number;
+  cast: Person[];
+  crew: Person[];
+}
+
 const api = axios.create({
   baseURL: "https://api.themoviedb.org/3",
   headers: {
@@ -104,5 +110,12 @@ export async function fetchPersons(page: number = 1): Promise<PersonsResponse> {
 
 export async function fetchGenresList(): Promise<{ genres: Genre[] }> {
   const response = await api.get<{ genres: Genre[] }>("/genre/movie/list");
+  return response.data;
+}
+
+export async function fetchPersonsFromMovie(
+  path: string
+): Promise<PersonsFromMovieResponse> {
+  const response = await api.get<PersonsFromMovieResponse>(path);
   return response.data;
 }

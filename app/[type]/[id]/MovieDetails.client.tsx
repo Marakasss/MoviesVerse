@@ -9,6 +9,7 @@ import React from "react";
 import css from "./MovieDetails.module.css";
 import Trailer from "@/components/Trailer/Trailer";
 import Reviews from "@/components/Reviews/Reviews";
+import PersonsSwiper from "@/components/PersonsSwiper/PersonsSwiper";
 
 const MovieDetailsClient = () => {
   const { id, type } = useParams();
@@ -18,6 +19,11 @@ const MovieDetailsClient = () => {
     queryFn: () => fetchContentById(String(type), String(id)),
     refetchOnMount: false,
   });
+
+  const pathToPersonPage =
+    type === "movie"
+      ? `/${type}/${id}/credits`
+      : `/${type}/${id}/aggregate_credits`;
 
   return (
     <>
@@ -110,8 +116,12 @@ const MovieDetailsClient = () => {
             </ul>
           </div>
         </div>
-        <div className={css.trailerWrapper}></div>
       </div>
+      <div>
+        <h2 className={css.swiperTitle}>Cast</h2>
+        <PersonsSwiper typeOfPersons="cast" path={pathToPersonPage} />
+      </div>
+      {/* <PersonsSwiper typeOfPersons="crew" path={pathToPersonPage} /> */}
       <Trailer type={String(type)} id={String(id)} />
 
       <div>
