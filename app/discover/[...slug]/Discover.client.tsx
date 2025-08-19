@@ -20,11 +20,10 @@ const DiscoverClient = ({ path }: DiscoverClientProps) => {
   });
 
   const content = data?.results ?? [];
-  const totalPages = 500;
+
   const type = path.split("/")[0] === "discover" ? "movie" : path.split("/")[0];
 
-  // Incorrectly respons from the API
-  // const totalPages = data?.total_pages ?? 0;
+  const totalPages = data?.total_pages ?? 0;
 
   if (isError) return <p className={css.notFound}>Something went wrong.</p>;
   if (isLoading) return <Loader />;
