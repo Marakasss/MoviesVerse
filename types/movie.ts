@@ -14,6 +14,7 @@ export interface Movie {
   popularity: number;
   name?: string;
   first_air_date?: string;
+  media_type?: "movie" | "person" | "tv";
 }
 
 export interface Genre {

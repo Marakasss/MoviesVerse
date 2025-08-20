@@ -33,7 +33,7 @@ const HomePageClient = () => {
       <RandomBackdropSection />
       <div className={css.contentWrapper}>
         <div className={css.movieSwiperWrp}>
-          <div className={css.titleLine}>POPULAR MOVIES</div>
+          <div className={css.titleLine}>TRANDING TOODAY</div>
           <PopularMovieSwiper />
         </div>
 

@@ -3,7 +3,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { fetchPopularMovies } from "@/lib/api";
+import { fetchDiscoveredContent, fetchPopularMovies } from "@/lib/api";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
@@ -16,7 +16,8 @@ const PopularMovieSwiper = () => {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useInfiniteQuery({
       queryKey: ["movies"],
-      queryFn: ({ pageParam = 1 }) => fetchPopularMovies(pageParam),
+      queryFn: ({ pageParam = 1 }) =>
+        fetchDiscoveredContent("trending/all/day", pageParam),
       getNextPageParam: (lastPage, allPages) => {
         const nextPage = allPages.length + 1;
         return nextPage <= lastPage.total_pages ? nextPage : undefined;
@@ -58,11 +59,11 @@ const PopularMovieSwiper = () => {
         {movies?.map((movie) => {
           return (
             <SwiperSlide key={movie.imdb_id} style={{ width: "200px" }}>
-              <Link href={`/movie/${movie.id}`}>
+              <Link href={`/${movie.media_type}/${movie.id}`}>
                 <div className={css.imageWrp}>
                   <Image
                     src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                    alt={movie.title}
+                    alt={movie.title || movie.name || "movie"}
                     width={200}
                     height={200}
                     className={css.image}
