@@ -31,7 +31,7 @@ const PersonsGrid = () => {
       id: person.id.toString(),
       image: person.profile_path
         ? `https://image.tmdb.org/t/p/original${person.profile_path}`
-        : "/unknownPerson.png",
+        : "/unknownPerson.PNG",
       title: person.name,
       subtitle: "",
       handle: "",
