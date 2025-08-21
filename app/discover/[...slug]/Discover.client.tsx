@@ -23,7 +23,10 @@ const DiscoverClient = ({ path }: DiscoverClientProps) => {
 
   const type = path.split("/")[0] === "discover" ? "movie" : path.split("/")[0];
 
-  const totalPages = data?.total_pages ?? 0;
+  const totalPages =
+    data?.total_pages && data?.total_pages <= 500
+      ? data?.total_pages || 1
+      : 500;
 
   if (isError) return <p className={css.notFound}>Something went wrong.</p>;
   if (isLoading) return <Loader />;

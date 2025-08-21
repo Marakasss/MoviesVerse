@@ -23,7 +23,12 @@ const MoviesClient = ({ query }: MoviesClientProps) => {
     placeholderData: keepPreviousData,
   });
   const movies = data?.results ?? [];
-  const totalPages = data?.total_pages ?? 0;
+
+  const totalPages =
+    data?.total_pages && data?.total_pages <= 500
+      ? data?.total_pages || 0
+      : 500;
+
   if (isLoading) return <Loader />;
   if (movies.length === 0)
     return <p className={css.notFound}>Nothing found.</p>;

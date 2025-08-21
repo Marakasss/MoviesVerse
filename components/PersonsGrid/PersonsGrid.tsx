@@ -22,9 +22,12 @@ const PersonsGrid = () => {
     placeholderData: keepPreviousData,
     refetchOnMount: false,
   });
-  // Incorrectly respons from the API
-  const totalPages = data?.total_pages || 1;
-  // const totalPages = 500;
+
+  //  API return icorect value. Max value of totalPages is 500
+  const totalPages =
+    data?.total_pages && data?.total_pages <= 500
+      ? data?.total_pages || 1
+      : 500;
 
   const items =
     data?.results.map((person) => ({

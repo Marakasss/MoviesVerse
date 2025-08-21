@@ -9,10 +9,12 @@ interface DiscoverPageProps {
 const Discover = async ({ params, searchParams }: DiscoverPageProps) => {
   const searchParamsObj = await searchParams;
   const searchParamsString = new URLSearchParams(searchParamsObj).toString();
+
   const { slug } = await params;
-  const path =
-    slug.slice(-2).join("/") +
-    (searchParamsString ? `?${searchParamsString}` : "");
+  console.log(slug);
+  const path = searchParamsString.includes("with_genres")
+    ? "discover/" + slug.slice(-2).join("/") + `${"?" + searchParamsString}`
+    : slug.slice(-2).join("/");
 
   return <DiscoverClient path={path} />;
 };
