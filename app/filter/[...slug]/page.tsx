@@ -12,9 +12,9 @@ const Discover = async ({ params, searchParams }: DiscoverPageProps) => {
 
   const { slug } = await params;
   console.log(slug);
-  const path = searchParamsString.includes("with_genres")
-    ? "discover/" + slug.slice(-2).join("/") + `${"?" + searchParamsString}`
-    : slug.slice(-2).join("/");
+  const path =
+    slug.slice(-2).join("/") +
+    `${searchParamsString ? "?" + searchParamsString : ""}`;
 
   return <DiscoverClient path={path} />;
 };

@@ -6,22 +6,22 @@ const MoviesNavMenu = () => {
   return (
     <ul className={css.menuList}>
       <li>
-        <Link className={css.link} href="/discover/movie/now_playing">
+        <Link className={css.link} href="/filter/discover/movie/now_playing">
           Now playing
         </Link>
       </li>
       <li>
-        <Link className={css.link} href="/discover/movie/popular">
+        <Link className={css.link} href="/filter/discover/movie/popular">
           Popular
         </Link>
       </li>
       <li>
-        <Link className={css.link} href="/discover/movie/top_rated">
+        <Link className={css.link} href="/filter/discover/movie/top_rated">
           Top rated
         </Link>
       </li>
       <li>
-        <Link className={css.link} href="/discover/movie/upcoming">
+        <Link className={css.link} href="/filter/discover/movie/upcoming">
           Upcoming
         </Link>
       </li>

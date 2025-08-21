@@ -17,7 +17,7 @@ const MoviePreviewClient = () => {
   const { id } = useParams();
   const type = "tv";
 
-  const { data: movie } = useQuery({
+  const { data: tvList } = useQuery({
     queryKey: ["movie", id],
     queryFn: () => fetchContentById(String(type), String(id)),
     refetchOnMount: false,
@@ -31,27 +31,27 @@ const MoviePreviewClient = () => {
     <Modal onClose={onClose}>
       <Image
         src={
-          movie?.backdrop_path
-            ? `https://image.tmdb.org/t/p/original/${movie.backdrop_path}`
-            : movie?.poster_path
-            ? `https://image.tmdb.org/t/p/original/${movie.poster_path}`
+          tvList?.backdrop_path
+            ? `https://image.tmdb.org/t/p/original/${tvList.backdrop_path}`
+            : tvList?.poster_path
+            ? `https://image.tmdb.org/t/p/original/${tvList.poster_path}`
             : "/poster-placeholder.png"
         }
-        alt={movie?.title ?? movie?.name ?? "Movie Poster"}
+        alt={tvList?.title ?? tvList?.name ?? "TV Poster"}
         width={278}
         height={300}
         objectFit="contain"
         className={css.image}
       />
       <div className={css.content}>
-        <h2>{movie?.title ?? movie?.name}</h2>
-        <p>{movie?.overview}</p>
+        <h2>{tvList?.title ?? tvList?.name}</h2>
+        <p>{tvList?.overview}</p>
         <p>
           <strong>Release Date:</strong>{" "}
-          {movie?.release_date ?? movie?.first_air_date}
+          {tvList?.release_date ?? tvList?.first_air_date}
         </p>
         <p>
-          <strong>Rating:</strong> {`${movie?.vote_average}/10`}
+          <strong>Rating:</strong> {`${tvList?.vote_average}/10`}
         </p>
         <button className={css.button} type="button" onClick={handleClick}>
           more

@@ -6,22 +6,22 @@ const TvNavMenu = () => {
   return (
     <ul className={css.menuList}>
       <li>
-        <Link className={css.link} href="/discover/tv/airing_today">
+        <Link className={css.link} href="/filter/discover/tv/airing_today">
           Airing Today
         </Link>
       </li>
       <li>
-        <Link className={css.link} href="/discover/tv/on_the_air">
+        <Link className={css.link} href="/filter/discover/tv/on_the_air">
           On The Air
         </Link>
       </li>
       <li>
-        <Link className={css.link} href="/discover/tv/popular">
+        <Link className={css.link} href="/filter/discover/tv/popular">
           Popular
         </Link>
       </li>
       <li>
-        <Link className={css.link} href="/discover/tv/top_rated">
+        <Link className={css.link} href="/filter/discover/tv/top_rated">
           Top Rated
         </Link>
       </li>

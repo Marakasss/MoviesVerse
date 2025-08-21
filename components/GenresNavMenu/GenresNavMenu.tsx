@@ -20,7 +20,7 @@ export const GenresNavMenu = () => {
           <li key={genre.id}>
             <Link
               className={css.link}
-              href={`/discover/movie?with_genres=${genre.id}`}
+              href={`/filter/discover/movie?with_genres=${genre.id}`}
             >
               {genre.name}
             </Link>
