@@ -64,26 +64,28 @@ const PersonDetailsClient = () => {
           </div>
         </div>
       </div>
-      <h2 className={css.title}>Filmography</h2>
-      <div>
-        <div className={css.titleLine}>MOVIES</div>
-        <FreeModeSwiper
-          queryKey={["moviesFilmography"]}
-          path={`person/${id}/movie_credits`}
-          linkPrefix="movie"
-          slidesPerView={6}
-          responseType="cast"
-        />
-      </div>
-      <div>
-        <div className={css.titleLine}>TV&apos;s</div>
-        <FreeModeSwiper
-          queryKey={["tvFilmography"]}
-          path={`person/${id}/tv_credits`}
-          linkPrefix="tv"
-          slidesPerView={6}
-          responseType="cast"
-        />
+      <div className={css.filmography}>
+        <h2 className={css.title}>Filmography</h2>
+        <div>
+          <div className={css.titleLine}>MOVIES</div>
+          <FreeModeSwiper
+            queryKey={["moviesFilmography"]}
+            path={`person/${id}/movie_credits`}
+            linkPrefix="movie"
+            slidesPerView={6}
+            responseType="cast"
+          />
+        </div>
+        <div>
+          <div className={css.titleLine}>TV&apos;s</div>
+          <FreeModeSwiper
+            queryKey={["tvFilmography"]}
+            path={`person/${id}/tv_credits`}
+            linkPrefix="tv"
+            slidesPerView={6}
+            responseType="cast"
+          />
+        </div>
       </div>
     </>
   );
