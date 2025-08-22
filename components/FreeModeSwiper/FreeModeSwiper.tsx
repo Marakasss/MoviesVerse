@@ -4,10 +4,11 @@ import { Swiper, SwiperClass, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/free-mode";
 import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 import css from "../PopularMovieSwiper/PopularMovieSwiper.module.css";
 // import required modules
-import { FreeMode, Pagination } from "swiper/modules";
+import { Navigation, FreeMode, Pagination } from "swiper/modules";
 import Link from "next/link";
 import Image from "next/image";
 import { useInfiniteQuery } from "@tanstack/react-query";
@@ -18,6 +19,7 @@ interface FreeModeSwiperProps {
   path: string;
   linkPrefix?: string;
   slidesPerView?: number;
+  responseType?: "results" | "cast";
 }
 
 const FreeModeSwiper = ({
@@ -25,6 +27,7 @@ const FreeModeSwiper = ({
   path,
   linkPrefix,
   slidesPerView,
+  responseType = "results",
 }: FreeModeSwiperProps) => {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
     useInfiniteQuery({
@@ -37,7 +40,7 @@ const FreeModeSwiper = ({
       initialPageParam: 1,
     });
 
-  const movies = data?.pages.flatMap((page) => page.results) || [];
+  const movies = data?.pages.flatMap((page) => page[responseType]) || [];
 
   const handleSlideChange = (swiper: SwiperClass) => {
     if (swiper.isEnd && hasNextPage && !isFetchingNextPage) {
@@ -47,31 +50,41 @@ const FreeModeSwiper = ({
 
   return (
     <>
-      <Swiper
-        onSlideChange={handleSlideChange}
-        slidesPerView={slidesPerView}
-        spaceBetween={30}
-        freeMode={true}
-        pagination={false}
-        modules={[FreeMode, Pagination]}
-        className={css.homeSwiper}
-      >
-        {movies?.map((movie) => {
-          return (
-            <SwiperSlide key={movie.imdb_id}>
-              <Link href={`/${linkPrefix}/${movie.id}`}>
-                <Image
-                  src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-                  alt={movie.title ?? movie.name}
-                  width={200}
-                  height={200}
-                  className={css.image}
-                />
-              </Link>
-            </SwiperSlide>
-          );
-        })}
-      </Swiper>
+      {movies.length > 0 && (
+        <Swiper
+          onSlideChange={handleSlideChange}
+          slidesPerView={slidesPerView}
+          spaceBetween={30}
+          freeMode={true}
+          navigation={true}
+          pagination={false}
+          modules={[FreeMode, Pagination, Navigation]}
+          className={css.homeSwiper}
+        >
+          {movies?.map((movie) => {
+            return (
+              <SwiperSlide key={movie?.imdb_id}>
+                <Link href={`/${linkPrefix}/${movie?.id}`}>
+                  <Image
+                    src={
+                      movie?.poster_path
+                        ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                        : "/noPhoto2.jpg"
+                    }
+                    alt={movie?.title ?? movie?.name ?? "Poster"}
+                    width={200}
+                    height={200}
+                    className={css.image}
+                  />
+                </Link>
+                {responseType === "cast" && movie?.character && (
+                  <p className={css.descr}>{movie.character}</p>
+                )}
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      )}
     </>
   );
 };

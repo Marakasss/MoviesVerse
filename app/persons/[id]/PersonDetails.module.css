@@ -23,7 +23,7 @@
 
 .personImage {
   float: left;
-  margin: 0 48px 48px 0;
+  margin: 0 48px 24px 0;
   max-width: 400px;
   height: auto;
   border-radius: 16px;
@@ -31,4 +31,27 @@
 
 .infoItem {
   margin-bottom: 32px;
+  line-height: 1.3em;
+  letter-spacing: 0.03em;
+}
+
+.titleLine {
+  display: flex;
+  align-items: center;
+  gap: 1rem; /* відстань між словом і лінією */
+  font-weight: bold;
+  font-size: 24px;
+  color: rgb(230, 176, 13);
+  text-transform: uppercase;
+  position: relative;
+  margin: 32px auto;
+
+  max-width: 1440px;
+}
+
+.titleLine::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background-color: rgb(230, 176, 13);
 }

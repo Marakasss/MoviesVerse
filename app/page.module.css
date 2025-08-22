@@ -39,7 +39,7 @@
 }
 
 .description {
-  font-size: 24px;
+  font-size: 20px;
 
   color: rgb(255, 210, 61);
   align-self: center;
@@ -98,4 +98,12 @@
   flex: 1;
   height: 1px;
   background-color: rgb(230, 176, 13);
+}
+
+.upcoming {
+  list-style-type: disc;
+}
+
+.upcomingTitle {
+  text-align: start;
 }

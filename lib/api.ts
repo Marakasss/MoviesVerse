@@ -8,6 +8,7 @@ if (!TMDB_TOKEN) {
 
 export interface MoviesResponse {
   results: Movie[];
+  cast?: Movie[];
   page: number;
   total_pages: number;
 }

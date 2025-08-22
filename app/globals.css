@@ -20,3 +20,13 @@ body {
   padding-top: 85px;
   color: azure;
 }
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: rgb(244, 244, 20) !important;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+  color: rgba(225, 165, 14, 0.973) !important;
+}

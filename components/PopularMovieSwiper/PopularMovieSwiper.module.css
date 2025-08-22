@@ -6,6 +6,7 @@
 }
 .homeSwiper {
   padding: 12px 0;
+  max-width: 1440px;
 }
 .image {
   overflow: hidden;
@@ -13,4 +14,11 @@
 
 .swiper-pagination {
   margin-top: 12px !important;
+}
+
+.descr {
+  text-align: center;
+  margin: 12px auto;
+  font-size: 16px;
+  color: rgb(255, 234, 0);
 }

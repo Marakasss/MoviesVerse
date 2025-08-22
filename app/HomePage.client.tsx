@@ -27,6 +27,12 @@ const HomePageClient = () => {
             seamless user experience.
           </p>
           <br />
+          <h3 className={css.upcomingTitle}>Upcoming updates</h3>
+          <ul className={css.upcoming}>
+            <li>Multilingual support (internationalization)</li>
+            <li>Fully responsive design for mobile and tablet devices</li>
+          </ul>{" "}
+          <br />
           <p>Start typing to find your next favorite movie. 🍿</p>
         </div>
       </div>
