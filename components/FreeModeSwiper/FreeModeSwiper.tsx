@@ -61,28 +61,31 @@ const FreeModeSwiper = ({
           modules={[FreeMode, Pagination, Navigation]}
           className={css.homeSwiper}
         >
-          {movies?.map((movie) => {
-            return (
-              <SwiperSlide key={movie?.imdb_id}>
-                <Link href={`/${linkPrefix}/${movie?.id}`}>
-                  <Image
-                    src={
-                      movie?.poster_path
-                        ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
-                        : "/noPhoto2.jpg"
-                    }
-                    alt={movie?.title ?? movie?.name ?? "Poster"}
-                    width={200}
-                    height={200}
-                    className={css.image}
-                  />
-                </Link>
-                {responseType === "cast" && movie?.character && (
-                  <p className={css.descr}>{movie.character}</p>
-                )}
-              </SwiperSlide>
-            );
-          })}
+          {movies
+            .slice()
+            .sort((a, b) => (b?.popularity ?? 0) - (a?.popularity ?? 0))
+            .map((movie) => {
+              return (
+                <SwiperSlide key={movie?.imdb_id}>
+                  <Link href={`/${linkPrefix}/${movie?.id}`}>
+                    <Image
+                      src={
+                        movie?.poster_path
+                          ? `https://image.tmdb.org/t/p/w500/${movie.poster_path}`
+                          : "/noPhoto2.jpg"
+                      }
+                      alt={movie?.title ?? movie?.name ?? "Poster"}
+                      width={200}
+                      height={200}
+                      className={css.image}
+                    />
+                  </Link>
+                  {responseType === "cast" && movie?.character && (
+                    <p className={css.descr}>{movie.character}</p>
+                  )}
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
       )}
     </>
