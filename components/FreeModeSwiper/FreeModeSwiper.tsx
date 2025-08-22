@@ -50,7 +50,7 @@ const FreeModeSwiper = ({
 
   return (
     <>
-      {movies.length > 0 && (
+      {movies.length > 0 ? (
         <Swiper
           onSlideChange={handleSlideChange}
           slidesPerView={slidesPerView}
@@ -87,6 +87,10 @@ const FreeModeSwiper = ({
               );
             })}
         </Swiper>
+      ) : (
+        <div>
+          <p className={css.noContent}>NO CONTENT</p>
+        </div>
       )}
     </>
   );
