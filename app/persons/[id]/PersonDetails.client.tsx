@@ -32,6 +32,7 @@ const PersonDetailsClient = () => {
             width={400}
             height={750}
             placeholder="blur"
+            blurDataURL="/blurPlaceholder.jpg"
             style={{ objectFit: "contain" }}
             className={css.personImage}
           />

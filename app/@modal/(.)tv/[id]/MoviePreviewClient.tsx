@@ -40,6 +40,8 @@ const MoviePreviewClient = () => {
         alt={tvList?.title ?? tvList?.name ?? "TV Poster"}
         width={278}
         height={300}
+        placeholder="blur"
+        blurDataURL="/blurPlaceholder.jpg"
         objectFit="contain"
         className={css.image}
       />

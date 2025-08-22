@@ -40,6 +40,7 @@ const MovieDetailsClient = () => {
           width={500}
           height={750}
           placeholder="blur"
+          blurDataURL="/blurPlaceholder.jpg"
           className={css.poster}
           style={{ objectFit: "contain" }}
         />
