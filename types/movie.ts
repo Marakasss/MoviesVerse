@@ -53,6 +53,10 @@ export interface Person {
   character?: string;
   roles?: Roles[];
   popularity: number;
+  biography?: string;
+  birthday: string;
+  place_of_birth?: string;
+  deathday?: string;
 }
 
 export interface Roles {

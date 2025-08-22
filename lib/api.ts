@@ -32,7 +32,7 @@ const api = axios.create({
 });
 
 // Fetch movies based on a search query
-// Returns a paginated response of movies
+
 export default async function fetchMovies(
   query: string,
   page: number
@@ -48,8 +48,6 @@ export default async function fetchMovies(
   return response.data;
 }
 
-// Fetch movie details by ID
-// Returns a single movie object
 export async function fetchContentById(
   path: string,
   id: string
@@ -125,6 +123,16 @@ export async function searchPersons(
 ): Promise<PersonsResponse> {
   const response = await api.get<PersonsResponse>("/search/person", {
     params: { query, page },
+  });
+
+  return response.data;
+}
+
+export async function fetchPersonDetails(id: string): Promise<Person> {
+  const response = await api.get<Person>(`/person/${id}`, {
+    params: {
+      id,
+    },
   });
 
   return response.data;

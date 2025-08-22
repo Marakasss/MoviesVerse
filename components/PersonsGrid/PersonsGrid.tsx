@@ -17,7 +17,7 @@ const PersonsGrid = () => {
     queryKey: ["persons", debouncedInputValue, page],
     queryFn: () =>
       debouncedInputValue
-        ? searchPersons(debouncedInputValue, page) // if searching
+        ? searchPersons(debouncedInputValue, page) // if searching person value
         : fetchPersons(page), // if no searching value
     placeholderData: keepPreviousData,
     refetchOnMount: false,

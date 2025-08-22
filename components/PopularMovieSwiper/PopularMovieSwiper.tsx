@@ -3,7 +3,7 @@ import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, EffectCoverflow, Pagination } from "swiper/modules";
 import { useInfiniteQuery } from "@tanstack/react-query";
-import { fetchDiscoveredContent, fetchPopularMovies } from "@/lib/api";
+import { fetchDiscoveredContent } from "@/lib/api";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
