@@ -31,6 +31,7 @@ const PersonDetailsClient = () => {
             alt={person?.name ?? "Person photo"}
             width={400}
             height={750}
+            placeholder="blur"
             style={{ objectFit: "contain" }}
             className={css.personImage}
           />

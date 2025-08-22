@@ -75,6 +75,7 @@ const FreeModeSwiper = ({
                           : "/noPhoto2.jpg"
                       }
                       alt={movie?.title ?? movie?.name ?? "Poster"}
+                      placeholder="blur"
                       width={200}
                       height={200}
                       className={css.image}

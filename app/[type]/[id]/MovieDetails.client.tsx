@@ -39,6 +39,7 @@ const MovieDetailsClient = () => {
           alt={movie?.title ?? "Movie Poster"}
           width={500}
           height={750}
+          placeholder="blur"
           className={css.poster}
           style={{ objectFit: "contain" }}
         />
