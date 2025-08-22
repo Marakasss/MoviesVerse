@@ -26,8 +26,6 @@ const InfinityMoviesSphere = () => {
       };
     }) || [];
 
-  console.log("InfinityMoviesSphere items:", items);
-
   return (
     <>
       <p className={css.title}>Swipe to choose a movie</p>{" "}
