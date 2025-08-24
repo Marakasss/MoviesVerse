@@ -22,9 +22,8 @@ const HomePageClient = () => {
           <br />
           <p>
             Built with React, Next.js, and TypeScript, the app delivers smooth
-            navigation and responsive design. It also uses React Query for
-            efficient data fetching and caching, ensuring fast performance and a
-            seamless user experience.
+            navigation. It also uses React Query for efficient data fetching and
+            caching, ensuring fast performance and a seamless user experience.
           </p>
           <br />
           <h3 className={css.upcomingTitle}>Upcoming updates</h3>
