@@ -5,6 +5,7 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import { Toaster } from "react-hot-toast";
 import { Metadata } from "next";
+import GoogleAnalytics from "@/components/GoogleAnalitycs/GoogleAnalitycs";
 
 //Fonts----------------------------------------
 
@@ -74,6 +75,7 @@ export default function RootLayout({
           {modal}
           <Footer />
         </TanStackProvider>
+        <GoogleAnalytics />
       </body>
     </html>
   );
